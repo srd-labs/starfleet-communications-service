@@ -29,7 +29,7 @@ spec:
           whenUnsatisfiable: DoNotSchedule
           labelSelector:
             matchLabels:
-              app: starfleet-navigation-service
+              app: starfleet-communications-service
       containers:
         - name: communications-service
           image: us-central1-docker.pkg.dev/starfleet-gke-platform-lab/starfleet-apps/starfleet-communications-service:v0.1.0
