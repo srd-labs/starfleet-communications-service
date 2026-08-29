@@ -5,7 +5,6 @@ metadata:
   labels:
     app: starfleet-communications-service
 spec:
-  replicas: 2
 
   strategy:
     type: RollingUpdate

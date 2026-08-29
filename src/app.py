@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 
 COMMIT_ID = os.getenv("COMMIT_ID", "local")
 RELEASE_VERSION = os.getenv("RELEASE_VERSION", "dev")
+QUADRANT = os.getenv("QUADRANT", "unknown")
+
 
 app = Flask(__name__)
 
@@ -27,6 +29,7 @@ def health_metadata():
     return jsonify(
         service="starfleet-communications-service",
         status="healthy",
+        quadrant=QUADRANT,
         timestamp=datetime.now(timezone.utc).isoformat(),
         commit_id=COMMIT_ID,
         release_version=RELEASE_VERSION,
@@ -35,12 +38,12 @@ def health_metadata():
 
 @app.route("/")
 def home():
-    log_event("Communication service homepage requested")
+    log_event("Communications service homepage requested")
 
     return jsonify(
         service="starfleet-communications-service",
         status="operational",
-        quadrant="alpha",
+        quadrant=QUADRANT,
     )
 
 
