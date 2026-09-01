@@ -22,6 +22,7 @@ spec:
         app: starfleet-communications-service
 
     spec:
+      serviceAccountName: communications-service
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
